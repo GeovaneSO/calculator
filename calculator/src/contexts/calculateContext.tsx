@@ -32,9 +32,8 @@ const Providers = ({children}: CalculateProps) => {
     
     async function calculator (data: CalculatorRequest) {
 
-        
-                const result = await api.post("", data)
-                console.log(result)
+        const result = await api.post("", data)
+        console.log(result)
 
     }
 
