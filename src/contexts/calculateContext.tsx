@@ -1,34 +1,13 @@
-import { createContext, useState, useEffect, ReactNode, SetStateAction, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 import api from "../api";
+import { CalculateProps, CalculateProviderData, CalculatorRequest } from "../interfaces";
 import { filterIsNumber, transformInArray } from "../utils/utilsFunctions";
-
-interface CalculatorRequest {
-    installments: number;
-	amount: number;
-	mdr: number;
-    days?: string ;
-};
-
-interface CalculateProviderData {
-
-    calculator: (data: any) => void;
-    // values: object;
-    setDays: Function;
-    days: string[];
-    values: number[]
-    createDays: JSX.Element[]
-};
-
-interface CalculateProps {
-    children: ReactNode
-};
 
 const CalculateContext = createContext<CalculateProviderData>({} as CalculateProviderData);
 
 const Providers = ({children}: CalculateProps) => {
     const [ values, setValues ] = useState<number[]>([]);
     const [ days, setDays ] = useState<string[]>([]);
-    const [ reload, setReload ]   = useState<boolean>(false);
   
     async function calculator (data: CalculatorRequest) {
       

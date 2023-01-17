@@ -1,13 +1,6 @@
-import { ReactNode, } from 'react';
+import { PropsButton } from '../../interfaces';
 
-interface Props{
-    children: ReactNode;
-    id?: string;
-    type?: "button" | "submit" | "reset" | undefined;
-    onClick?: React.MouseEventHandler<HTMLButtonElement> | any;
-    className?: string;
-}
-function Button({children, id, type, onClick, className}: Props){
+function Button({children, id, type, onClick, className}: PropsButton){
     return(
         <button id={id} className={className} type={type} onClick={onClick}>
             {children}

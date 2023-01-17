@@ -15,7 +15,7 @@ export const Container = styled.main`
 
         /* gap: 1%; */
         width: 60%;
-        height: 70%;
+        height: 75%;
 
         border: solid 2px #d8e1e8;
         border-radius: 5px;
