@@ -19,6 +19,9 @@ interface CalculatorRequest {
 interface CalculateProviderData {
 
     calculator: (data: any) => void;
+    values: ICalculate;
+    setDays: Function;
+    days: number[]
 }
 
 interface CalculateProps {
@@ -27,18 +30,18 @@ interface CalculateProps {
 const CalculateContext = createContext<CalculateProviderData>({} as CalculateProviderData)
 
 const Providers = ({children}: CalculateProps) => {
-    const [ values, setValues ] = useState<object>({})
-
+    const [ values, setValues ] = useState<ICalculate>({} as ICalculate)
+    const [ days, setDays ] = useState<number[]>([])
     
     async function calculator (data: CalculatorRequest) {
 
-        const result = await api.post("", data)
-        console.log(result)
+        const response = await api.post("", data)
+        setValues(response.data)
 
     }
 
     return (
-        <CalculateContext.Provider value={{ calculator }}>
+        <CalculateContext.Provider value={{ calculator, values, days, setDays }}>
             {children}
         </CalculateContext.Provider>
     );

@@ -7,6 +7,7 @@ import range from '../../utils/functionRange';
 import Button from "../../components/Button";
 import Form from "../../components/Form"
 import { Container } from "./styles";
+import { Context } from "../../contexts";
 
 const Dashboard = () => {
     const formSchema = yup.object({
@@ -20,6 +21,7 @@ const Dashboard = () => {
         reset,
     } = useForm({resolver: yupResolver(formSchema),});
 
+    const { values } = Context()
 
     const numbers = range(1, 12)
     
@@ -39,10 +41,10 @@ const Dashboard = () => {
                                 VOCÊ RECEBERÁ:
                             </h3>
                         </div>
-                        <p>Amanhã: <span>R$ 0,00</span></p>
-                        <p>Em 15 dias: <span>R$ 0,00</span></p>
-                        <p>Em 30 dias: <span>R$ 0,00</span></p>
-                        <p>Em 90 dias: <span>R$ 0,00</span></p>
+                        <p>Amanhã: <span>R$ {values[1]}</span></p>
+                        <p>Em 15 dias: <span>R$ {values[15]}</span></p>
+                        <p>Em 30 dias: <span>R$ {values[30]}</span></p>
+                        <p>Em 90 dias: <span>R$ {values[90]}</span></p>
                     </div>
                 </div>
             </section>

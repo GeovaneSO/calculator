@@ -14,11 +14,10 @@ const Form = () => {
     const {
         register,
         handleSubmit,
-        // formState: { errors },
-        // reset,
+        formState: { errors }
     } = useForm({resolver: yupResolver(formSchema),});
 
-
+    console.log(errors)
     const numbers = range(1, 12)
     
     const installments = numbers.map((number) => {
@@ -76,7 +75,7 @@ const Form = () => {
                     type={"text"}
                     id="mdr"
                 />
-                {/* <span>{errors.mdr?.message}</span> */}
+                <span>{}</span>
             </div>
             <div className='box__button'>
                 <Button type={"submit"}>Cadastrar</Button>
