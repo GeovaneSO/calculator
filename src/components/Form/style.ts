@@ -8,9 +8,10 @@ export const FormBox = styled.form`
 
     *box-sizing: border-box;
 
-    gap: 5px;
+    /* gap: 1%; */
 
     width: 60%;
+    height: 100%;
 
     background-color: white;
 
@@ -37,38 +38,64 @@ export const FormBox = styled.form`
         justify-content: center;
         margin: 0;
         width: 65%;
-        height: 18%;
+        height: 15%;
         
-        gap: 10px;
+        gap: 5%;
         label{
             color: #7d7b7b;
         }
-        input{
-            padding: 8px 12px;
-            width: 90%;
-            margin: 0;
-            height: 30%;
-            border-radius: 5px;
-            border: solid 1px  #d8e1e8; 
-        }
-    }
-    .box_select {
-        color: red;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-
-        width: 55%;
-        height: 20%;
-        
-        margin: 0;
-        gap: 10px;
-        select{
+        .box_input_error{
             width: 100%;
-            margin: 0;
-            height: 30%;
-            
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+           
+            input{
+                padding: 8px 12px;
+                width: 90%;
+                margin: 0;
+                height: 60%;
+                border-radius: 5px;
+                border: solid 1px  #d8e1e8; 
+            }
         }
     }
+
+    .cursor {
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: ${(props) => props.theme.white};
+        min-width: 160px;
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1;
+        font-size: 2.5vw;
+        border-radius: 0.15vw;
+        
+        color: var(--red-2) tex;
+        margin: 0;
+        
+        p{
+            font-size: 30%;
+            width: fit-content;
+            margin: 0;
+            line-height: 20px;
+        }
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    
 `;
