@@ -1,3 +1,3 @@
-import { Providers } from "./calculateContext";
+import { Context } from "./calculateContext";
 
-export { Providers };
+export { Context };
