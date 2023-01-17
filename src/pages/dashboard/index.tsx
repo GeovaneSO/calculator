@@ -1,31 +1,13 @@
 import { useForm } from "react-hook-form";
 // // import { useState, useContext, useId } from 'react';
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup';
-import { useId } from 'react';
-import range from '../../utils/functionRange';
-import Button from "../../components/Button";
 import Form from "../../components/Form"
 import { Container } from "./styles";
 import { Context } from "../../contexts";
 
 const Dashboard = () => {
-    const { values, days } = Context()
+    const { values, days, createDays } = Context()
 
-    const numbers = range(1, 12)
-    
-    const createDays = days.map((day, index) => {
-        let response = "";
-
-        day === "1" ? 
-            response = `Amanhã: ${values[index]}`
-        :   response =`Em ${day} dias: ${values[index]}`
-        
-        return(
-            <p>{response}</p>
-        );
-    });
-
+        console.log(values, days)
     return (
     
         <Container>
