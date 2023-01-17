@@ -8,7 +8,7 @@ function RoutesMain (){
 
   return( 
     <Routes>
-         <Route path='/dashboard' element={<Dashboard/>}/>
+         <Route path='/' element={<Dashboard/>}/>
         {/*<Route path='/login' element={<Login/>}/>
         <Route path='/cadastro' element={<Registration/>}/> */}
         {/* <Route path='*' element={<Navigate to='/login'/>}/>   */}

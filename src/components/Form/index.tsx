@@ -17,7 +17,6 @@ const Form = () => {
         formState: { errors }
     } = useForm({resolver: yupResolver(formSchema),});
 
-    console.log(errors)
     const numbers = range(1, 12)
     
     const installments = numbers.map((number) => {
@@ -28,12 +27,8 @@ const Form = () => {
             <option key={id} id={id} value={number}>
                 {number}
             </option>
-        )
+        );
     });
-
-    // const calculator = (data: any)=>{
-    //     console.log(data)
-    // }
 
     return (
 
@@ -58,16 +53,6 @@ const Form = () => {
                     id="installments"
                 />
             </div>
-            {/* <div className='box_select'>
-                <label htmlFor={"installments"}>Em quantas parcelas? *</label>
-                <select name="" id="">
-                    <option value="">
-                        Parcelas
-                    </option>
-                    {installments}
-
-                </select>                    
-            </div> */}
             <div className="box_input">
                 <label htmlFor={"mdr"}>Informe o percentual de MDR *</label>
                 <input 
@@ -77,12 +62,21 @@ const Form = () => {
                 />
                 <span>{}</span>
             </div>
+
+            <div className="box_input">
+                <label htmlFor={"days"}>Informe dias que você quer simular</label>
+                <input 
+                    {...register('days')}                    
+                    type={"text"}
+                    id="days"
+                />
+                <span>{}</span>
+            </div>
             <div className='box__button'>
                 <Button type={"submit"}>Cadastrar</Button>
             </div>
         </FormBox>
-    )
-    
+    );    
 };
 
 export default Form;
