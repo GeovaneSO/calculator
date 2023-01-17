@@ -14,30 +14,48 @@ interface CalculatorRequest {
     installments: number;
 	amount: number;
 	mdr: number;
+    days?: number[]
 };
 
 interface CalculateProviderData {
 
     calculator: (data: any) => void;
-    values: ICalculate;
+    // values: object;
     setDays: Function;
-    days: number[]
+    days: string[];
+    values: number[]
 }
 
 interface CalculateProps {
     children: ReactNode
 }
+
 const CalculateContext = createContext<CalculateProviderData>({} as CalculateProviderData)
 
 const Providers = ({children}: CalculateProps) => {
-    const [ values, setValues ] = useState<ICalculate>({} as ICalculate)
-    const [ days, setDays ] = useState<number[]>([])
+    const [ values, setValues ] = useState<number[]>([])
+    const [ days, setDays ] = useState<string[]>([])
     
     async function calculator (data: CalculatorRequest) {
+        
+        if (data.days?.length === 0){
+            
+            const response = await api.post("", {
+                installments: data.installments,
+                amount: data.amount,
+                mdr: data.mdr
+            });
 
-        const response = await api.post("", data)
-        setValues(response.data)
+            setValues(Object.values(response.data));
+            setDays(Object.keys(response.data));
+        }
+        console.log(data);
+        
+        const response = await api.post("", data);
 
+        setValues(Object.values(response.data));
+        setDays(Object.keys(response.data))
+        
     }
 
     return (

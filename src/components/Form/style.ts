@@ -36,7 +36,7 @@ export const FormBox = styled.form`
         align-items: flex-start;
         justify-content: center;
         margin: 0;
-        width: 60%;
+        width: 65%;
         height: 18%;
         
         gap: 10px;
