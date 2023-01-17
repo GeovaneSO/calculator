@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 // // import { useState, useContext, useId } from 'react';
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup';
-import { useId } from 'react';
-import range from '../../utils/functionRange';
 import Button from "../../components/Button";
 import { FormBox } from "./style";
 import formSchema from "../../serializer"
@@ -17,18 +14,6 @@ const Form = () => {
         formState: { errors }
     } = useForm({resolver: yupResolver(formSchema),});
 
-    const numbers = range(1, 12)
-    
-    const installments = numbers.map((number) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const id = useId();
-
-        return (
-            <option key={id} id={id} value={number}>
-                {number}
-            </option>
-        );
-    });
 
     return (
 
