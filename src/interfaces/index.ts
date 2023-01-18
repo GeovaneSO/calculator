@@ -13,8 +13,11 @@ export interface CalculateProviderData {
     calculator: (data: any) => void;
     setDays: Function;
     days: string[];
-    values: number[]
+    values: number[];
+    setLoading: Function;
+    loading: boolean;
     createDays: JSX.Element[]
+    
 };
 
 export interface CalculateProps {

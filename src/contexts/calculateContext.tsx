@@ -8,11 +8,12 @@ const CalculateContext = createContext<CalculateProviderData>({} as CalculatePro
 const Providers = ({children}: CalculateProps) => {
     const [ values, setValues ] = useState<number[]>([]);
     const [ days, setDays ] = useState<string[]>([]);
+    const [ loading, setLoading ] = useState<boolean>(false);
   
     async function calculator (data: CalculatorRequest) {
       
         if (data.days?.length === 0){
-    
+            setLoading(true)
             const response = await api.post("", {
                 installments: data.installments,
                 amount: data.amount,
@@ -24,14 +25,14 @@ const Providers = ({children}: CalculateProps) => {
             window.localStorage.setItem("days", JSON.stringify(Object.keys(response.data)));
 
             setDays(Object.keys(response.data));
-
+            setLoading(false)
             return response;
         };
 
         const arrayDays = transformInArray(data.days)
 
         const numbers = filterIsNumber(arrayDays);
-        
+        setLoading(true)
         const response = await api.post("", {
             installments: data.installments,
             amount: data.amount,
@@ -44,6 +45,7 @@ const Providers = ({children}: CalculateProps) => {
             setValues(Object.values(response.data));
             setDays(Object.keys(response.data));
             window.localStorage.setItem("days", JSON.stringify(Object.keys(response.data)));
+            setLoading(false)
             return response;
         };
         
@@ -63,7 +65,7 @@ const Providers = ({children}: CalculateProps) => {
     });
     
     return (
-        <CalculateContext.Provider value={{ calculator, values, days, setDays, createDays }}>
+        <CalculateContext.Provider value={{ calculator, values, days, setDays, createDays, setLoading, loading }}>
             {children}
         </CalculateContext.Provider>
     );

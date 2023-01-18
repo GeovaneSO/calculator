@@ -1,12 +1,14 @@
 import Form from "../../components/Form"
 import { Container } from "./styles";
 import { Context } from "../../contexts";
+import Loading from "../../components/Loading";
 
 const Dashboard = () => {
-    const { days, createDays } = Context()
+    const { days, createDays, loading } = Context()
 
     return (
-    
+        <>
+        { loading && <Loading />}
         <Container>
             <section>
                 <Form/>
@@ -25,6 +27,7 @@ const Dashboard = () => {
                 </div>
             </section>
         </Container>
+        </>
     );
 };
 

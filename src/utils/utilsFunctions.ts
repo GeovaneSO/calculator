@@ -1,6 +1,7 @@
 const filterIsNumber = (array: Array<number> | undefined) => {
     const numbers = array?.filter((value: number | string) => {
-        if (Number.isNaN(value)) {}
+        if (Number.isNaN(value)) {
+        }
         return value;
     });
     return numbers;
