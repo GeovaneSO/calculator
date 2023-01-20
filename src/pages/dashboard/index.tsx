@@ -5,14 +5,21 @@ import Loading from "../../components/Loading";
 
 const Dashboard = () => {
     const { days, values, loading } = Context();
-
+    
     const advanceValue =  days.map((day, index) => {
         let response = "";
         
-        day === "1" ? 
-            response = `Amanhã: ${values[index]}`
+        const value = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+        }).format(values[index])
+
+        const numberDay = Math.round( Number(day))
+        
+        numberDay === 1 ? 
+            response = `Amanhã: ${value}`
         :            
-            response =`Em ${day} dias: ${values[index]}`
+            response =`Em ${numberDay} dias: ${value}`
     
         return(
             <p>{response}</p>
