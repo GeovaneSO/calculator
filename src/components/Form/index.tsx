@@ -81,7 +81,7 @@ const Form = () => {
                 </div>
             </div>
 
-            <div className="box_input">
+            <div className="box_input box_day">
                 <label htmlFor={"days"}>Informe dias que você quer simular</label>
                 <div className="box_input_error">
                     <Input register={register} type="text" id="days" placeholder="Ex.: 1,2"  className="days"/>
@@ -89,7 +89,7 @@ const Form = () => {
             </div>
 
             <div className='box__button'>
-                <Button type={"submit"}>Cadastrar</Button>
+                <Button type={"submit"}>Calcule</Button>
             </div>
 
         </FormBox>
