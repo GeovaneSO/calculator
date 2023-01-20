@@ -2,7 +2,36 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Routes
+
+The project has the dashboard routes ("/") and error routes ("/error"). In the dashboard route, when using query params, like the example below, different requests will be made in the available api.
+
+Example:
+
+The route http://localhost:3000/?delay=10000 makes a request in the api causing a delay in the response of the application.
+
+The route http://localhost:3000/?internalError makes a request in the api causing a status error 500 as a response from the application, with this error the application directs the user to a 500 error page.
+
+The route http://localhost:3000/?timeoutmakes a request in the api causing an error with status 408 (request timeout), in response to the user, the application generates a toastify notification of the error.
+
+# Dashboard
+
+The dashboard route has the anticipation calculator, the application's main component. The calculator is capable of receiving up to 4 parameters to perform the calculation.
+
+1st Amount: the first parameter used is the amount, which has the base value for the calculation;
+2nd Installments: the second parameter is the number of installments for the calculation to be based on;
+3rd Mdr: the third is the percentage charged and calculated based on the amount;
+4th Days: the fourth parameter is used to provide the period on which the calculation will be based to return the anticipated value;
+
+The first three parameters are mandatory, the fourth is an optional parameter, and its value can be entered as follows:
+1,2,50;
+Values ​​entered in this way in the input will result in the calculation based on the number of days provided, if values ​​are not passed in the input, the application uses default values ​​to complete the calculation.
+
 ## Available Scripts
+
+Install project dependencies
+
+### `yarn` or `yarn install`
 
 In the project directory, you can run:
 
