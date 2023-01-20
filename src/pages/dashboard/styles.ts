@@ -43,8 +43,8 @@ export const Container = styled.main`
                         font-size: 18px;
                         margin: 0;
                         color: #4b8bdf;
-                    }
-                }
+                    };
+                };
                 p{
                     margin: 0;
                     color: #a4bddf;
@@ -52,10 +52,10 @@ export const Container = styled.main`
                     span{
                         color: #4b8bdf;
                         font-weight: 600;
-                    }
-                }
-            }
-        }
+                    };
+                };
+            };
+        };
         
-    }
+    };
 `;
