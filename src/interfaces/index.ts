@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { UseFormRegister } from 'react-hook-form';
+import { Location, NavigateFunction } from "react-router-dom";
 
 export interface CalculatorRequest {
     installments: number;
@@ -9,19 +10,21 @@ export interface CalculatorRequest {
 };
 
 export interface CalculateProviderData {
-
     calculator: (data: any) => void;
     setDays: Function;
+    setValues: Function
     days: string[];
     values: number[];
     setLoading: Function;
     loading: boolean;
-    createDays: JSX.Element[]
-    
+    location: Location;
+    isPaused: boolean;
+    isStopped: boolean;
+    navigate: NavigateFunction;
 };
 
 export interface CalculateProps {
-    children: ReactNode
+    children: ReactNode;
 };
 
 export interface PropsButton{
@@ -30,13 +33,13 @@ export interface PropsButton{
     type?: "button" | "submit" | "reset" | undefined;
     onClick?: React.MouseEventHandler<HTMLButtonElement> | any;
     className?: string;
-}
+};
 
 export interface PropsInput{
     id?: string;
     type?: "text" | "button" | "checkboc" | undefined;
     onClick?: React.MouseEventHandler<HTMLButtonElement> | any;
     className: "installments" | "amount" | "mdr" | "days";
-    register: UseFormRegister<CalculatorRequest>
-    placeholder?: string
-}
+    register: UseFormRegister<CalculatorRequest>;
+    placeholder?: string;
+};

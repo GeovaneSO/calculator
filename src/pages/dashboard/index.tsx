@@ -1,34 +1,47 @@
-import Form from "../../components/Form"
+import Form from "../../components/Form";
 import { Container } from "./styles";
 import { Context } from "../../contexts";
 import Loading from "../../components/Loading";
 
 const Dashboard = () => {
-    const { days, createDays, loading } = Context()
+    const { days, values, loading } = Context();
 
+    const advanceValue =  days.map((day, index) => {
+        let response = "";
+        
+        day === "1" ? 
+            response = `Amanhã: ${values[index]}`
+        :            
+            response =`Em ${day} dias: ${values[index]}`
+    
+        return(
+            <p>{response}</p>
+        );
+    });
+    
     return (
         <>
-        { loading && <Loading />}
-        <Container>
-            <section>
-                <Form/>
-                <div className="box_values">
-                    <div className="values">
-                        <div className="box_title">
-                            <h3>VOCÊ RECEBERÁ:</h3>
+            { loading && <Loading />}
+            <Container>
+                <section>
+                    <Form/>
+                    <div className="box_values">
+                        <div className="values">
+                            <div className="box_title">
+                                <h3>VOCÊ RECEBERÁ:</h3>
+                            </div>
+                            {
+                                days.length === 0 ?
+                                    <p></p>
+                                :
+                                advanceValue
+                            }
                         </div>
-                        {
-                            days.length === 0 ?
-                                <p></p>
-                            :
-                                createDays
-                        }
                     </div>
-                </div>
-            </section>
-        </Container>
+                </section>
+            </Container>
         </>
     );
 };
 
-export { Dashboard }
+export { Dashboard };

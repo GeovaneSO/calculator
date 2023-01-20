@@ -1,3 +1,3 @@
 import { Dashboard } from "./dashboard";
-
-export { Dashboard };
+import { Error } from "./Error";
+export { Dashboard, Error };
