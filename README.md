@@ -19,8 +19,11 @@ The route http://localhost:3000/?timeoutmakes a request in the api causing an er
 The dashboard route has the anticipation calculator, the application's main component. The calculator is capable of receiving up to 4 parameters to perform the calculation.
 
 1st Amount: the first parameter used is the amount, which has the base value for the calculation;
+
 2nd Installments: the second parameter is the number of installments for the calculation to be based on;
+
 3rd Mdr: the third is the percentage charged and calculated based on the amount;
+
 4th Days: the fourth parameter is used to provide the period on which the calculation will be based to return the anticipated value;
 
 The first three parameters are mandatory, the fourth is an optional parameter, and its value can be entered as follows:
